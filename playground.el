@@ -43,10 +43,22 @@
     (funcall message-buffer-name)
     "end"))
 
-(progn
+(defun my--test-write ()
   (let ((output-buffer (get-buffer-create "analysis_ouput"))
         (input-path "/Users/tom-liang/Documents/scripts/test-color-for-emacs.py"))
     (with-current-buffer output-buffer
-      (insert-string (concat input-path)
-                     " "
-                     (word-count-for-task input-path "import")))))
+      (insert-string (concat input-path
+                             " "
+                             (word-count-for-task input-path "import"))))))
+
+(my--test-write)
+
+(mapcar (lambda (arg)
+          (upcase arg))
+        '("this" "is " "a" " test...."))
+(mapcar (lambda (arg)
+          (downcase arg))
+        '("this" "is " "a" " test...."))
+(mapcar (lambda (arg)
+          (capitalize arg))
+        '("this" "is " "a" " test...."))
